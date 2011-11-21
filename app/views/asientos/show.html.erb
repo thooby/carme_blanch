@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @asiento.fecha %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @asiento.tipo_id %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @asiento.categoria_id %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @asiento.descripcion %>
+</p>
+
+<p>
+  <b>Monto:</b>
+  <%= @asiento.monto %>
+</p>
+
+<p>
+  <b>Observaciones:</b>
+  <%= @asiento.observaciones %>
+</p>
+
+
+<%= link_to 'Edit', edit_asiento_path(@asiento) %> |
+<%= link_to 'Back', asientos_path %>

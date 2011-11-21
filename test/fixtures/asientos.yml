@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fecha: 2011-11-21
+  tipo_id: 1
+  categoria_id: 1
+  descripcion: MyString
+  monto: 9.99
+  observaciones: MyString
+
+two:
+  fecha: 2011-11-21
+  tipo_id: 1
+  categoria_id: 1
+  descripcion: MyString
+  monto: 9.99
+  observaciones: MyString

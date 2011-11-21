@@ -1,0 +1,33 @@
+<h1>Listing asientos</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Tipo</th>
+    <th>Categoria</th>
+    <th>Descripcion</th>
+    <th>Monto</th>
+    <th>Observaciones</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @asientos.each do |asiento| %>
+  <tr>
+    <td><%= asiento.fecha %></td>
+    <td><%= asiento.tipo_id %></td>
+    <td><%= asiento.categoria_id %></td>
+    <td><%= asiento.descripcion %></td>
+    <td><%= asiento.monto %></td>
+    <td><%= asiento.observaciones %></td>
+    <td><%= link_to 'Show', asiento %></td>
+    <td><%= link_to 'Edit', edit_asiento_path(asiento) %></td>
+    <td><%= link_to 'Destroy', asiento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Asiento', new_asiento_path %>

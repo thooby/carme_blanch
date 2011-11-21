@@ -1,0 +1,2 @@
+module AsientosHelper
+end
