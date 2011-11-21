@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20111121181017) do
   create_table "asientos", :force => true do |t|
     t.date     "fecha"
     t.integer  "tipo_id"
-    t.integer  "categoria_id"
+    t.integer  "categorium_id"
     t.string   "descripcion"
     t.decimal  "monto"
     t.string   "observaciones"
