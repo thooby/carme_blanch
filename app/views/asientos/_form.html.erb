@@ -1,10 +1,32 @@
-<% semantic_form_for @asiento do |f| %>
-    <%= f.inputs :name => "Basic" do %>
-      <%= f.input :fecha %>
-      <%= f.input :tipo, :as => :select %>
-      %= f.input :categorium, :as => :select %>
-      <%= f.input :monto %>     
-      <%= f.input :observaciones %>
-      <%= f.buttons %>
-   <% end %>
+<%= form_for @asiento do |f| %>
+  <% if @asiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asiento.errors.count, "error") %> prohibited this asiento from being saved:</h2>
+
+      <ul>
+      <% @asiento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <b>Fecha:</b>
+    <%= f.date_select(:fecha, :order => [:day,:month,:year]) %>
+  <p><b>Tipo:</b>
+	<%= @tipos=Tipo.find(:all,:order=>"descripcion")
+	    f.collection_select(:tipo_id,@tipos,:id,:descripcion, {:selected=>2}) %>
+  <b>Categoría:</b>
+	<%= @categoria=Categorium.find(:all,:order=>"descripcion")
+	    f.collection_select(:categorium_id,@categoria,:id,:descripcion, {:selected=>1}) %></p>
+  		<p><b>Descripción:</b>
+			<%= f.text_field :descripcion %></p>
+		<p><b>Cantidad:</b>
+			<%= f.text_field :monto %></p>
+  <p><b>Observaciones:</b><br />
+	<%= f.text_area :observaciones, :rows => 3 %></p>
+  <p><%= f.submit "Guardar"%></p>
 <% end %>
+		
+  
+

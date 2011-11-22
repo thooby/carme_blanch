@@ -1,5 +1,15 @@
-<h1>Listing asientos</h1>
-
+<h1>Lista de apuntes</h1>
+<% estado = estado_caja(@asientos)%>
+<h2> Estado de Caja: 
+      <% if estado < 0 %>
+      <span class="egreso">
+      <%= estado %></span>
+      <% elsif estado > 0 %>
+	<span class="ingreso">
+      <%= estado %></span>
+      <% else %>
+   <% end %> Córdobas</h2>
+<% estado_evo = 0%>
 <table>
   <tr>
     <th>Fecha</th>
@@ -8,26 +18,46 @@
     <th>Descripcion</th>
     <th>Monto</th>
     <th>Observaciones</th>
+    <th>Evolución caja</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @asientos.each do |asiento| %>
-  <tr>
-    <td><%= asiento.fecha %></td>
-    <td><%= asiento.tipo_id %></td>
-    <td><%= asiento.categoria_id %></td>
-    <td><%= asiento.descripcion %></td>
-    <td><%= asiento.monto %></td>
-    <td><%= asiento.observaciones %></td>
-    <td><%= link_to 'Show', asiento %></td>
-    <td><%= link_to 'Edit', edit_asiento_path(asiento) %></td>
-    <td><%= link_to 'Destroy', asiento, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <% if asiento.tipo_id == 2 then %>
+    <tr class= "egreso">
+  <% elsif asiento.tipo_id == 1 %>
+	<tr class="ingreso">
+		<% else %>
+		<tr>
+  <% end %>
+  <td><%= asiento.fecha %></td>
+  <td><%= asiento.tipo.descripcion %></td>
+  <td><%= asiento.categorium.descripcion %></td>
+  <td><%= asiento.descripcion %></td>
+  <td><%= asiento.monto %></td>
+  <td><%= asiento.observaciones %></td>
+  <% if asiento.tipo_id == 2 then %>
+    <%= estado_evo -= asiento.monto.to_i  %>
+  <% elsif asiento.tipo_id == 1 %>
+    <%= estado_evo += asiento.monto.to_i  %>
+  <% end %>
+  <% if estado_evo >0  %>
+    <td class="ingreso">
+  <% elsif estado_evo <0 %>
+	<td class="egreso">
+  <% else %>
+	<td>
+  <% end %>
+	<%= estado_evo %></td>
+  <td><%= link_to 'Mostrar', asiento %></td>
+  <td><%= link_to 'Editar', edit_asiento_path(asiento) %></td>
+  <td><%= link_to 'Eliminar', asiento, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+ </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Asiento', new_asiento_path %>
+<%= link_to 'Apunte nuevo', new_asiento_path %>

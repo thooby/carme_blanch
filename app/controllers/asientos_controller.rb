@@ -2,7 +2,7 @@ class AsientosController < ApplicationController
   # GET /asientos
   # GET /asientos.json
   def index
-    @asientos = Asiento.all
+    @asientos = Asiento.find(:all, :order => "fecha ASC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class AsientosController < ApplicationController
 
     respond_to do |format|
       if @asiento.save
-        format.html { redirect_to @asiento, :notice => 'Asiento was successfully created.' }
+        format.html { redirect_to @asiento, :notice => 'El apunte fue creado.' }
         format.json { render :json => @asiento, :status => :created, :location => @asiento }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AsientosController < ApplicationController
 
     respond_to do |format|
       if @asiento.update_attributes(params[:asiento])
-        format.html { redirect_to @asiento, :notice => 'Asiento was successfully updated.' }
+        format.html { redirect_to @asiento, :notice => 'El apunte fue cambiado.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
