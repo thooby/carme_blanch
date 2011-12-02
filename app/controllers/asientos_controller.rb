@@ -1,9 +1,10 @@
 class AsientosController < ApplicationController
   # GET /asientos
   # GET /asientos.json
+  load_and_authorize_resource
+  
   def index
     @asientos = Asiento.find(:all, :order => "fecha ASC")
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @asientos }

@@ -31,4 +31,6 @@ gem 'i18n'
 
 # To use debugger
 # gem 'ruby-debug'
-
+gem 'bcrypt-ruby'
+gem "cancan", "~> 1.6.7"
+gem "nifty-generators", :group => :development

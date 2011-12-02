@@ -1,12 +1,13 @@
-<h1>Lista de apuntes</h1>
+
+<h1>Lista de apuntes contables</h1>
 <% estado = estado_caja(@asientos)%>
 <h2> Estado de Caja: 
       <% if estado < 0 %>
       <span class="egreso">
-      <%= estado %></span>
+      <% estado %></span>
       <% elsif estado > 0 %>
 	<span class="ingreso">
-      <%= estado %></span>
+      <% estado %></span>
       <% else %>
    <% end %> Córdobas</h2>
 <% estado_evo = 0%>
@@ -39,9 +40,9 @@
   <td><%= asiento.monto %></td>
   <td><%= asiento.observaciones %></td>
   <% if asiento.tipo_id == 2 then %>
-    <%= estado_evo -= asiento.monto.to_i  %>
+    <% estado_evo -= asiento.monto.to_i  %>
   <% elsif asiento.tipo_id == 1 %>
-    <%= estado_evo += asiento.monto.to_i  %>
+    <% estado_evo += asiento.monto.to_i  %>
   <% end %>
   <% if estado_evo >0  %>
     <td class="ingreso">
@@ -52,12 +53,15 @@
   <% end %>
 	<%= estado_evo %></td>
   <td><%= link_to 'Mostrar', asiento %></td>
-  <td><%= link_to 'Editar', edit_asiento_path(asiento) %></td>
-  <td><%= link_to 'Eliminar', asiento, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+<% if can? :update, asiento %>
+  <td><%= link_to 'Editar', edit_asiento_path(asiento) %></td><% end %>
+<% if can? :destroy, asiento %>
+  <td><%= link_to 'Eliminar', asiento, :confirm => '¿Está usted seguro?', :method => :delete %></td><% end %>
  </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if can? :create, Asiento %>
 <%= link_to 'Apunte nuevo', new_asiento_path %>
+<% end %>

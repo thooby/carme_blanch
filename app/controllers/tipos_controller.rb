@@ -1,6 +1,7 @@
 class TiposController < ApplicationController
   # GET /tipos
   # GET /tipos.json
+    load_and_authorize_resource 
   def index
     @tipos = Tipo.all
 

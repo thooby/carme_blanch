@@ -15,10 +15,10 @@
     <%= f.date_select(:fecha, :order => [:day,:month,:year]) %>
   <p><b>Tipo:</b>
 	<%= @tipos=Tipo.find(:all,:order=>"descripcion")
-	    f.collection_select(:tipo_id,@tipos,:id,:descripcion, {:selected=>2}) %>
+	    f.collection_select(:tipo_id,@tipos,:id,:descripcion) %>
   <b>Categoría:</b>
 	<%= @categoria=Categorium.find(:all,:order=>"descripcion")
-	    f.collection_select(:categorium_id,@categoria,:id,:descripcion, {:selected=>1}) %></p>
+	    f.collection_select(:categorium_id,@categoria,:id,:descripcion) %></p>
   		<p><b>Descripción:</b>
 			<%= f.text_field :descripcion %></p>
 		<p><b>Cantidad:</b>

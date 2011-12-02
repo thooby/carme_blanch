@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,6 +31,6 @@
   <%= @asiento.observaciones %>
 </p>
 
-
-<%= link_to 'Edit', edit_asiento_path(@asiento) %> |
-<%= link_to 'Back', asientos_path %>
+<% if can? :update, Asiento %>
+<%= link_to 'Modificar', edit_asiento_path(@asiento) %> |<% end %>
+<%= link_to 'Lista general', asientos_path %>
