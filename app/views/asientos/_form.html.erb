@@ -13,8 +13,8 @@
   <b>Fecha:</b>
     <%= f.date_select(:fecha, :order => [:day,:month,:year]) %>
   <p><b>Tipo:</b>
-    <%= @tipos=Tipo.find(:all, :order=>"descripcion")
-	    f.collection_select(:tipo_id, @tipos, :id, :descripcion) %> 
+    <%= @tipos=Tipo.find(:all, :order=>"descripcion" )
+    f.collection_select(:tipo_id, @tipos, :id, :descripcion, :include_blank => true) %> 
   <b>Categoría:</b>
 	<%= @categoria=Categorium.find(:all,:order=>"descripcion")
 	    f.collection_select(:categorium_id,@categoria,:id,:descripcion) %></p>

@@ -11,6 +11,9 @@
       <% else %>
    <% end %> Córdobas</h2>
 <% estado_evo = 0%>
+<% if can? :create, Asiento %>
+<%= link_to 'Apunte nuevo', new_asiento_path %>
+<% end %>
 <table>
   <tr>
     <th>Fecha</th>
@@ -54,7 +57,7 @@
 	<%= estado_evo %></td>
   <td><%= link_to 'Mostrar', asiento %></td>
 <% if can? :update, asiento %>
-  <td><%= link_to 'Editar', edit_asiento_path(asiento) %></td><% end %>
+  <td><%= link_to 'Modificar', edit_asiento_path(asiento) %></td><% end %>
 <% if can? :destroy, asiento %>
   <td><%= link_to 'Eliminar', asiento, :confirm => '¿Está usted seguro?', :method => :delete %></td><% end %>
  </tr>

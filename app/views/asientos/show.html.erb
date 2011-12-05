@@ -1,18 +1,19 @@
-
-<p id="notice"><%= notice %></p>
+<p>  
+    <% if @asiento.tipo.descripcion =='Gasto' %>
+      <span id="gasto">
+	<% else %>
+	  <span id="ingreso">
+	<% end %>
+    <b>Tipo:</b>
+      <%= @asiento.tipo.descripcion %>
+   </span></p>
+  <p>
+    <b>Fecha:</b>
+    <%= @asiento.fecha %>
+  </p>
 
 <p>
-  <b>Fecha:</b>
-  <%= @asiento.fecha %>
-</p>
-
-<p>
-  <b>Tipo:</b>
-  <%= @asiento.tipo.descripcion %>
-</p>
-
-<p>
-  <b>Categoria:</b>
+  <b>Categoría:</b>
   <%= @asiento.categorium.descripcion %>
 </p>
 
@@ -34,3 +35,5 @@
 <% if can? :update, Asiento %>
 <%= link_to 'Modificar', edit_asiento_path(@asiento) %> |<% end %>
 <%= link_to 'Lista general', asientos_path %>
+<% if can? :create, Asiento %> | 
+<%= link_to 'Añadir otro apunte más', new_asiento_path %><% end %>
