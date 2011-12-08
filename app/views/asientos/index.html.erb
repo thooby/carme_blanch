@@ -11,9 +11,10 @@
       <% else %>
    <% end %> Córdobas</h2>
 <% estado_evo = 0%>
-<% if can? :create, Asiento %>
+<span class="nuevo_item"><% if can? :create, Asiento %>
 <%= link_to 'Apunte nuevo', new_asiento_path %>
-<% end %>
+<% end %></span>
+<%= will_paginate_with_i18n @asientos %><br />
 <table>
   <tr>
     <th>Fecha</th>
@@ -21,7 +22,6 @@
     <th>Categoria</th>
     <th>Descripcion</th>
     <th>Monto</th>
-    <th>Observaciones</th>
     <th>Evolución caja</th>
     <th></th>
     <th></th>
@@ -41,7 +41,7 @@
   <td><%= asiento.categorium.descripcion %></td>
   <td><%= asiento.descripcion %></td>
   <td><%= asiento.monto %></td>
-  <td><%= asiento.observaciones %></td>
+  
   <% if asiento.tipo_id == 2 then %>
     <% estado_evo -= asiento.monto.to_i  %>
   <% elsif asiento.tipo_id == 1 %>
@@ -64,7 +64,9 @@
 <% end %>
 </table>
 
-<br />
-<% if can? :create, Asiento %>
+<br /><span class="nuevo_item"><% if can? :create, Asiento %>
 <%= link_to 'Apunte nuevo', new_asiento_path %>
-<% end %>
+<% end %></span>
+<%= will_paginate_with_i18n @asientos %><br />
+
+

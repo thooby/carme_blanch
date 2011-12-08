@@ -12,7 +12,7 @@
   <% end %>
   <b>Fecha:</b>
     <%= f.date_select(:fecha, :order => [:day,:month,:year]) %>
-  <p><b>Tipo:</b>
+  <p><b><span><%= f.label :tipo %></span></b>
     <%= @tipos=Tipo.find(:all, :order=>"descripcion" )
     f.collection_select(:tipo_id, @tipos, :id, :descripcion, :include_blank => true) %> 
   <b>Categoría:</b>
@@ -26,6 +26,19 @@
 	<%= f.text_area :observaciones, :rows => 3 %></p>
   <p><%= f.submit "Guardar"%></p>
 <% end %>
+		<script>
+		  $('#asiento_tipo_id').change(function(){			
+		    if ($(this).children('option:selected').text() === 'Gasto') {
+		      $('span').removeClass('ingreso').addClass('gasto');
+		    } else if ($(this).children('option:selected').text() === 'Ingreso'){
+		      $('span').removeClass('gasto').addClass('ingreso');
+		    }  
+		      else    {
+		      $('span').removeClass('gasto').removeClass('ingreso');
+		    }
+		   });
+		</script>
+
 		
   
 
