@@ -9,7 +9,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-	<h1 class="white">Asociació Carme Blanch</h1>
+	<h1 class="white"><%= VarConf.find(1).titulo %></h1>
     <div id="container">
 		<div id="user_nav">  
 		  <% if current_user %>  
