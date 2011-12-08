@@ -3,10 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .ingreso {
  color:blue;
+ text-align: right;
 }
+
 
 .egreso {
  color:red;
+ text-align: right;
+
 }
 body {
   background-color: #4B7399;
@@ -83,3 +87,5 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+ 

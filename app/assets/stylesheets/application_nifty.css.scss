@@ -94,8 +94,12 @@ table#show
 	background-color:#EEE;
 	padding:10}
 .nombre {color:red;}
-#gasto {color:red;}
-#ingreso {color:blue;}
+#gasto {color:red;
+         text-align: right;
+		}
+#ingreso {color:blue;
+ text-align: right;
+}
 .nuevo_item {float: right; margin-right:50px;}
 .pagination {
   background: white;
@@ -153,4 +157,20 @@ f.tipo.ingreso label {
 
 f.tipo.gasto label {
   color: red
+}
+table.indice tr th {
+  text-align:left;
+  padding-right:15px;
+}
+table.indice tr td {
+  padding-right:15px;
+}
+.num_align {
+  text-align: right;
+}
+tr.even {
+  background-color: #fff;
+}
+tr.odd {
+  background-color: #ddd;
 }

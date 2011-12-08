@@ -15,7 +15,7 @@
 <%= link_to 'Apunte nuevo', new_asiento_path %>
 <% end %></span>
 <%= will_paginate_with_i18n @asientos %><br />
-<table>
+<table class="indice">
   <tr>
     <th>Fecha</th>
     <th>Tipo</th>
@@ -28,19 +28,20 @@
     <th></th>
   </tr>
 
-<% @asientos.each do |asiento| %>
-  <% if asiento.tipo_id == 2 then %>
-    <tr class= "egreso">
+<% @asientos.each do |asiento| %>  
+<% if asiento.tipo_id == 2 then %>
+    <tr class= "egreso <%= cycle('odd', 'even') -%>">
   <% elsif asiento.tipo_id == 1 %>
-	<tr class="ingreso">
+	<tr class="ingreso <%= cycle('odd', 'even') -%>">
 		<% else %>
 		<tr>
   <% end %>
+  
   <td><%= asiento.fecha %></td>
   <td><%= asiento.tipo.descripcion %></td>
   <td><%= asiento.categorium.descripcion %></td>
   <td><%= asiento.descripcion %></td>
-  <td><%= asiento.monto %></td>
+  <td class="num_align"> <%= asiento.monto %></td>
   
   <% if asiento.tipo_id == 2 then %>
     <% estado_evo -= asiento.monto.to_i  %>
@@ -52,7 +53,7 @@
   <% elsif estado_evo <0 %>
 	<td class="egreso">
   <% else %>
-	<td>
+	<td class="num_align">
   <% end %>
 	<%= estado_evo %></td>
   <td><%= link_to 'Mostrar', asiento %></td>
@@ -60,7 +61,7 @@
   <td><%= link_to 'Modificar', edit_asiento_path(asiento) %></td><% end %>
 <% if can? :destroy, asiento %>
   <td><%= link_to 'Eliminar', asiento, :confirm => '¿Está usted seguro?', :method => :delete %></td><% end %>
- </tr>
+</tr> 
 <% end %>
 </table>
 
