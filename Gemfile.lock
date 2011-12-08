@@ -43,6 +43,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    fastercsv (1.5.4)
     formtastic (2.0.2)
       rails (~> 3.0)
     hike (1.2.1)
@@ -115,6 +116,7 @@ DEPENDENCIES
   bcrypt-ruby
   cancan (~> 1.6.7)
   coffee-rails (~> 3.1.1)
+  fastercsv
   formtastic (~> 2.0.2)
   i18n
   jquery-rails

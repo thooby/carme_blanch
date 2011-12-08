@@ -1,16 +1,16 @@
 
 <h1>Lista de apuntes contables</h1>
-<% estado = estado_caja(@asientos)%>
+<% estado = estado_caja(@asientos2)%>
+<%= p estado %>
 <h2> Estado de Caja: 
-      <% if estado < 0 %>
+      <% if estado[0] < 0 %>
       <span class="egreso">
-      <% estado %></span>
-      <% elsif estado > 0 %>
+      <%= estado[0] %></span>
+      <% elsif estado[0] > 0 %>
 	<span class="ingreso">
-      <% estado %></span>
+      <%= estado[0] %></span>
       <% else %>
    <% end %> Córdobas</h2>
-<% estado_evo = 0%>
 <span class="nuevo_item"><% if can? :create, Asiento %>
 <%= link_to 'Apunte nuevo', new_asiento_path %>
 <% end %></span>
@@ -42,20 +42,14 @@
   <td><%= asiento.categorium.descripcion %></td>
   <td><%= asiento.descripcion %></td>
   <td class="num_align"> <%= asiento.monto %></td>
-  
-  <% if asiento.tipo_id == 2 then %>
-    <% estado_evo -= asiento.monto.to_i  %>
-  <% elsif asiento.tipo_id == 1 %>
-    <% estado_evo += asiento.monto.to_i  %>
-  <% end %>
-  <% if estado_evo >0  %>
+  <% if estado[1][asiento.id] >0  %>
     <td class="ingreso">
-  <% elsif estado_evo <0 %>
+  <% elsif estado[1][asiento.id] <0 %>
 	<td class="egreso">
   <% else %>
 	<td class="num_align">
   <% end %>
-	<%= estado_evo %></td>
+	<%= estado[1][asiento.id] %></td>
   <td><%= link_to 'Mostrar', asiento %></td>
 <% if can? :update, asiento %>
   <td><%= link_to 'Modificar', edit_asiento_path(asiento) %></td><% end %>
@@ -69,5 +63,6 @@
 <%= link_to 'Apunte nuevo', new_asiento_path %>
 <% end %></span>
 <%= will_paginate_with_i18n @asientos %><br />
+<%= link_to "Exportar a csv", request.parameters.merge({:format => :csv}) %>
 
 

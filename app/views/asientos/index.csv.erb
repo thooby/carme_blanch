@@ -1,0 +1,7 @@
+<% estado = estado_caja(@asientos2) %>
+<%- headers = ["Id", "Fecha","Tipo","Descripcion","Monto","Observaciones"] -%>
+<%= FasterCSV.generate_line headers, options = {:row_sep => "\t", :quote_char => "'"} %>
+<%- @asientos2.each do |n| -%>
+<%- row = [ n.id, n.fecha,n.tipo.descripcion,n.descripcion,n.monto, estado[1][n.id]] -%>
+<%= FasterCSV.generate_line row, options = {:row_sep => "\t", :quote_char => "'"}  %>
+<%- end -%>

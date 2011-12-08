@@ -35,3 +35,4 @@ gem 'bcrypt-ruby'
 gem "cancan", "~> 1.6.7"
 gem "nifty-generators", :group => :development
 gem 'will_paginate', '> 3.0'
+gem 'fastercsv'

@@ -5,6 +5,14 @@
 # Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
 
 "es":
+  unauthorized: "No tiene autorización"
+  unauthorized:
+      manage:
+        all: "No está autorizado para %{action} %{subject}."
+        user: "No está permitido administrar cuentas de otros usuarios"
+      update:
+        project: "No le está permitido modificar este proyecto"
+  
   next: "Página siguiente"
   previous: "Página anterior"
   date:
