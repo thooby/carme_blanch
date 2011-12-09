@@ -4,8 +4,8 @@ class AsientosController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @asientos2 = Asiento.order("fecha ASC")
-    @asientos = Asiento.order("fecha ASC").page(params[:page])
+    @asientos2 = Asiento.ascen
+    @asientos = Asiento.ascen.page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @asientos }

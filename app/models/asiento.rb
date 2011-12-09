@@ -3,5 +3,6 @@ class Asiento < ActiveRecord::Base
   belongs_to :categorium
   belongs_to :tipo
   self.per_page = 10
-  default_scope order('fecha DESC')
+  scope :descen, order('fecha DESC, id DESC')
+  scope :ascen, order('fecha ASC, id ASC')
 end
