@@ -1,4 +1,6 @@
 CarmeBlanch::Application.routes.draw do
+  resources :cuenta
+
   resources :var_confs
 
   resources :categoria

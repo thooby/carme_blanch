@@ -1,0 +1,8 @@
+<h1>Cuentas</h1>
+<%= form_for(:asiento) do |form| %>
+<%= @cuenta=Cuentum.find(:all,:order=>"nombre")
+   form.collection_select(:cuentum_id,@cuenta,:id, :nombre, {:selected=>1}) %>
+<br />  
+  <p><%= submit_tag 'Enviar' %></p>
+<% end %>
+
