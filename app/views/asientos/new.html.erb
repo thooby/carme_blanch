@@ -1,5 +1,13 @@
-<h1>Apunte nuevo</h1>
+<div id="new">
+  <h1>Apunte nuevo en la cuenta 
+	<% cuentum = Cuentum.find(@cuenta) %>
+	<%= cuentum.nombre%> de <%= cuentum.moneda%></h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Back', asientos_path %>
+  <%= link_to "Cambiar de cuenta", cuenta_path %>
+  <%= form_tag asientos_path, :method => "get" do  %>
+    <%= hidden_field_tag :cuentum_id, cuentum.id %>
+    <%= button_tag 'Ver cuenta' %>
+  <% end %>
+</div>

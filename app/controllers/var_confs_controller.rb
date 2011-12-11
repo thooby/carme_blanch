@@ -1,6 +1,7 @@
 class VarConfsController < ApplicationController
   # GET /var_confs
   # GET /var_confs.json
+    load_and_authorize_resource
   def index
     @var_confs = VarConf.all
 

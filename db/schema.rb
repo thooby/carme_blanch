@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209033211) do
+ActiveRecord::Schema.define(:version => 20111210214321) do
 
   create_table "asientos", :force => true do |t|
     t.date     "fecha"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111209033211) do
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "moneda"
   end
 
   create_table "tipos", :force => true do |t|

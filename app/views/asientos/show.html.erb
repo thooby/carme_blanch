@@ -1,4 +1,6 @@
+
 <p>  
+	Cuenta de <%= @asiento.cuentum.nombre %> en <%= @asiento.cuentum.moneda %><br />
     <% if @asiento.tipo.descripcion =='Gasto' %>
       <span id="gasto">
 	<% else %>
@@ -31,9 +33,26 @@
   <b>Observaciones:</b>
   <%= @asiento.observaciones %>
 </p>
-
+<div id="show">
 <% if can? :update, Asiento %>
-<%= link_to 'Modificar', edit_asiento_path(@asiento) %> |<% end %>
-<%= link_to 'Lista general', asientos_path %>
-<% if can? :create, Asiento %> | 
-<%= link_to 'Añadir otro apunte más', new_asiento_path %><% end %>
+  <%= form_tag edit_asiento_path(@asiento) , :method => "get" do  %>
+    <%= hidden_field_tag :cuentum_id, @asiento.cuentum_id %>
+    <%= button_tag 'Modificar apunte' %>
+  <% end %>
+<% end %>
+
+<%= form_tag asientos_path, :method => "get" do  %>
+  <%= hidden_field_tag :cuentum_id, @asiento.cuentum_id %>
+  <%= button_tag 'Ver cuenta' %>
+<% end %>
+
+<% if can? :create, Asiento %>
+    <%= form_tag new_asiento_path, :method => 'get' do %>
+	  <%= hidden_field_tag :cuentum_id, @asiento.cuentum_id %>
+	  <%= button_tag 'Apunte nuevo' %>	
+    <% end %>
+<% end %>
+
+<%= link_to "Cambiar de cuenta", cuenta_path %>
+
+</div>

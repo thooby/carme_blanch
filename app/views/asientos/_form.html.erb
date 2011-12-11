@@ -1,20 +1,22 @@
 <%= form_for @asiento do |f| %>
+  
   <% if @asiento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@asiento.errors.count, "error") %> prohibited this asiento from being saved:</h2>
 
       <ul>
-      <% @asiento.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @asiento.errors.full_messages.each do |msg| %>
+          <li><%= msg %><//li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+  <%= f.hidden_field :cuentum_id, :value => @cuenta %>
   <b>Fecha:</b>
     <%= f.date_select(:fecha, :order => [:day,:month,:year]) %>
-  <p><b><span><%= f.label :tipo %></span></b>
-    <%= @tipos=Tipo.find(:all, :order=>"descripcion" )
-    f.collection_select(:tipo_id, @tipos, :id, :descripcion, :include_blank => true) %> 
+    <p><b><span><%= f.label :tipo %></span></b>
+      <%= @tipos=Tipo.find(:all, :order=>"descripcion" )
+         f.collection_select(:tipo_id, @tipos, :id, :descripcion, :include_blank => true) %> 
   <b>Categoría:</b>
 	<%= @categoria=Categorium.find(:all,:order=>"descripcion")
 	    f.collection_select(:categorium_id,@categoria,:id,:descripcion) %></p>

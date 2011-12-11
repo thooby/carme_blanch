@@ -1,4 +1,5 @@
 class CuentaController < ApplicationController
+    load_and_authorize_resource
   # GET /cuenta
   # GET /cuenta.json
   def index

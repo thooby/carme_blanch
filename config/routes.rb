@@ -1,18 +1,15 @@
 CarmeBlanch::Application.routes.draw do
+  root :to => "cuenta#index"
   resources :cuenta
-
   resources :var_confs
-
   resources :categoria
-
   resources :tipos
-
-  resources :asientos
+  resources :asientos 
   get "log_out" => "sessions#destroy", :as => "log_out"
-    get "log_in" => "sessions#new", :as => "log_in"
-    get "sign_up" => "users#new", :as => "sign_up"
-    resources :users
-    resources :sessions
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :users
+  resources :sessions
 
 
   # The priority is based upon order of creation:
@@ -64,7 +61,7 @@ CarmeBlanch::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'asientos#index'
+   # root :to => cuenta_path
 
   # See how all your routes lay out with "rake routes"
 

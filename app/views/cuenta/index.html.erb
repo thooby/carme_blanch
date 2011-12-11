@@ -1,8 +1,21 @@
-<h1>Cuentas</h1>
-<%= form_for(:asiento) do |form| %>
-<%= @cuenta=Cuentum.find(:all,:order=>"nombre")
-   form.collection_select(:cuentum_id,@cuenta,:id, :nombre, {:selected=>1}) %>
-<br />  
-  <p><%= submit_tag 'Enviar' %></p>
+<div id="ver_apuntes">
+<p>Ver apuntes de las cuentas</p>
+<%= form_tag asientos_path, :method => "get" do  %>
+<%= radio_button_tag(:cuentum_id, "1",:checked => true) %>
+<%= label_tag(:cuentum_id_1, "Caja") %><br />
+<%= radio_button_tag(:cuentum_id, "2") %>
+<%= label_tag(:cuentum_id_2, "Banco") %><br /> 
+<%= button_tag 'Ver cuenta' %>
 <% end %>
+</div>
+<div id="new_apunte">
+<p>Añadir apuntes a las cuentas</p>
+<%= form_tag new_asiento_path, :method => "get" do  %>
+<%= radio_button_tag(:cuentum_id, "1",:checked => true) %>
+<%= label_tag(:cuentum_id_1, "Caja") %><br />
+<%= radio_button_tag(:cuentum_id, "2") %>
+<%= label_tag(:cuentum_id_2, "Banco") %> 
+  <p><%= button_tag 'Añadir apunte' %></p>
+<% end %>
+</div>
 
