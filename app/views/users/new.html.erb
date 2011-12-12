@@ -1,9 +1,9 @@
-<h1>Sign Up</h1>
+<h1>Dar de alta a un usuario</h1>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
+      <h2>El formulario es inválido</h2>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
