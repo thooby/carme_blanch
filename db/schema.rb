@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208223744) do
+ActiveRecord::Schema.define(:version => 20111210214321) do
 
   create_table "asientos", :force => true do |t|
     t.date     "fecha"
@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(:version => 20111208223744) do
     t.string   "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cuentum_id"
   end
 
   create_table "categoria", :force => true do |t|
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cuenta", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "moneda"
   end
 
   create_table "tipos", :force => true do |t|

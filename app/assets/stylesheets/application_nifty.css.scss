@@ -177,3 +177,65 @@ tr.odd {
 img.detalle {
   float:right;
 }
+
+div#new_apunte {
+  background-color: #dde;
+  border: solid;
+  padding: 10px;
+  width:60%;
+
+}
+div#new_apunte p {
+  font-size: 150%;
+  font-weight :bold;
+margin:0;
+padding:0;
+}
+div#new_apunte button {
+  font-size: 100%;
+  margin-left:60%;
+  margin-top:0;
+}
+div#ver_apuntes {
+  background-color: #edd;
+  border: solid;
+  padding: 10px;
+  width:60%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+
+}
+div#ver_apuntes div {
+  float:left;
+}
+div#ver_apuntes p {
+  font-size: 150%;
+  font-weight :bold;
+  margin:0;
+  padding:0;
+}
+div#ver_apuntes button {
+  font-size: 120%;
+  margin-left:60%;
+  margin-top:0;
+}
+label[for=cuentum_id_1] {
+font-size: 200%;
+
+}
+label[for=cuentum_id_2] {
+font-size: 200%;
+
+}
+div#new.button {
+  float:left;
+}
+div#show.button {
+  float:left;
+}
+  
+
+img.detalle {
+  float:right;
+}
+

@@ -3,9 +3,16 @@ class AsientosController < ApplicationController
   # GET /asientos.json
   load_and_authorize_resource
   
-  def index
-    @asientos2 = Asiento.ascen
-    @asientos = Asiento.descen.page(params[:page])
+  def index    
+    if params[:asiento]
+      @cuenta = params[:asiento][:cuentum_id] 
+    elsif params[:cuentum_id]
+      @cuenta = params[:cuentum_id]
+    else
+      @cuenta = 1
+    end
+    @asientos2 = Asiento.cuentas(@cuenta).ascen
+    @asientos = Asiento.cuentas(@cuenta).descen.page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @asientos }
@@ -27,8 +34,14 @@ class AsientosController < ApplicationController
   # GET /asientos/new
   # GET /asientos/new.json
   def new
+    if params[:asiento]
+      @cuenta = params[:asiento][:cuentum_id] 
+    elsif params[:cuentum_id]
+      @cuenta = params[:cuentum_id]
+    else
+      @cuenta = 1
+    end 
     @asiento = Asiento.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @asiento }
@@ -37,6 +50,13 @@ class AsientosController < ApplicationController
 
   # GET /asientos/1/edit
   def edit
+    if params[:asiento]
+      @cuenta = params[:asiento][:cuentum_id] 
+    elsif params[:cuentum_id]
+      @cuenta = params[:cuentum_id]
+    else
+      @cuenta = 1
+    end
     @asiento = Asiento.find(params[:id])
   end
 
