@@ -3,7 +3,6 @@ class AsientosController < ApplicationController
   # GET /asientos.json
   load_and_authorize_resource
   
-<<<<<<< HEAD
   def index    
     if params[:asiento]
       @cuenta = params[:asiento][:cuentum_id] 
@@ -12,13 +11,8 @@ class AsientosController < ApplicationController
     else
       @cuenta = 1
     end
-    @asientos2 = Asiento.cuentas(@cuenta).order("fecha ASC")
-    @asientos = Asiento.cuentas(@cuenta).order("fecha ASC").page(params[:page])
-=======
-  def index
-    @asientos2 = Asiento.ascen
-    @asientos = Asiento.descen.page(params[:page])
->>>>>>> master
+    @asientos2 = Asiento.cuentas(@cuenta).ascen
+    @asientos = Asiento.cuentas(@cuenta).descen.page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @asientos }

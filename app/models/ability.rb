@@ -9,8 +9,10 @@ class Ability
          can :manage, :all
        elsif user.role == "operador"
          can [:read, :create, :update],  Asiento
+         can [:read, :create, :update],  Cuentum
        elsif user.role == "socio" 
-         can :read, Asiento     
+         can :read, Asiento    
+         can :read, Cuentum     
        else
        end
     #
