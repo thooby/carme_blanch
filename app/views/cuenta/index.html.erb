@@ -8,6 +8,7 @@
 <%= button_tag 'Ver cuenta' %>
 <% end %>
 </div>
+<% if can? :create, Asiento %>
 <div id="new_apunte">
 <p>Añadir apuntes a las cuentas</p>
 <%= form_tag new_asiento_path, :method => "get" do  %>
@@ -18,4 +19,6 @@
   <p><%= button_tag 'Añadir apunte' %></p>
 <% end %>
 </div>
+<% end %>
+
 
