@@ -4,7 +4,7 @@ class CuentaController < ApplicationController
   # GET /cuenta.json
   def index
     @cuenta = Cuentum.all
-
+    @stats = Asiento.informe_hasta_dia
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @cuenta }

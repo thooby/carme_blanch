@@ -182,14 +182,14 @@ div#new_apunte {
   background-color: #dde;
   border: solid;
   padding: 10px;
-  width:60%;
+  width:40%;
 
 }
 div#new_apunte p {
   font-size: 150%;
   font-weight :bold;
-margin:0;
-padding:0;
+  margin:0;
+  padding:0;
 }
 div#new_apunte button {
   font-size: 100%;
@@ -200,7 +200,7 @@ div#ver_apuntes {
   background-color: #edd;
   border: solid;
   padding: 10px;
-  width:60%;
+  width:40%;
   margin-bottom: 10px;
   margin-top: 5px;
 
@@ -220,11 +220,11 @@ div#ver_apuntes button {
   margin-top:0;
 }
 label[for=cuentum_id_1] {
-font-size: 200%;
+  font-size: 200%;
 
 }
 label[for=cuentum_id_2] {
-font-size: 200%;
+  font-size: 200%;
 
 }
 div#new.button {
@@ -238,4 +238,17 @@ div#show.button {
 img.detalle {
   float:right;
 }
+div#ver_mes {
+  float:right;
+  background-color: #ded;
+  border: solid;
+  padding: 10px;
+  width:40%;
+  margin-bottom: 10px;
+  margin-top: 5px;
 
+}
+.green {
+    color:green;
+    font-weight: bold;
+}

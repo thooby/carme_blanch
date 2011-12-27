@@ -1,3 +1,4 @@
+
 <div id="ver_apuntes">
 <p>Ver apuntes de las cuentas</p>
 <%= form_tag asientos_path, :method => "get" do  %>
@@ -7,6 +8,21 @@
 <%= label_tag(:cuentum_id_2, "Banco") %><br /> 
 <%= button_tag 'Ver cuenta' %>
 <% end %>
+</div>
+<div id="ver_mes">
+	<h2><thead>
+	<%= @stats[0]%></thead></h2>	
+	<table id="show">
+      <tr><th>Categoria</th><th>Monto</th></tr>
+      <% @stats[1..-1].each do |z| %>
+        <tr>
+        <% z.each do |w|%>
+          <td><%=raw w %></td>
+        <% end %>
+     </tr>
+      <% end %>
+
+    </table>
 </div>
 <% if can? :create, Asiento %>
 <div id="new_apunte">
